@@ -22,7 +22,7 @@ export const Users = () => {
       setLoading(false);
     } catch (error) {
       setError(error.message);
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -35,15 +35,15 @@ export const Users = () => {
     try {
       const response = await addUser(user);
       if (response.status === 201) {
-        console.log(user);
+        // console.log(user);
         const newUser = { ...response.data, id: users.length + 1 };
         setUsers((prevUsers) => [...prevUsers, newUser]);
         setIsAdding(false); // Close the add form
-        console.log(users);
+        // console.log(users);
       }
     } catch (error) {
       setError(error.message);
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -66,7 +66,7 @@ export const Users = () => {
           user.id === id ? { ...user, ...updatedUser } : user
         )
       );
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -80,7 +80,7 @@ export const Users = () => {
     } catch (error) {
       // if custom created user not found by id in api then deleting user directly from user state
       setUsers(users.filter((user) => user.id !== id));
-      console.log(error);
+      // console.log(error);
     }
   };
 
